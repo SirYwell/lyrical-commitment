@@ -1,13 +1,11 @@
-package com.github.sirywell.lyricalcommitment.listeners
+package de.sirywell.lyricalcommitment.services
 
-import com.github.sirywell.lyricalcommitment.services.MyProjectService
-import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener
 
 internal class MyProjectManagerListener : ProjectManagerListener {
 
     override fun projectOpened(project: Project) {
-        project.service<MyProjectService>()
+        // TODO?
     }
 }

@@ -1,19 +1,19 @@
 <idea-plugin>
-    <id>com.github.sirywell.lyricalcommitment</id>
-    <name>lyrical-commitment</name>
-    <vendor>sirywell</vendor>
+    <id>de.sirywell.lyricalcommitment</id>
+    <name>Lyrical Commitment</name>
+    <vendor>SirYwell</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.sirywell.lyricalcommitment.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.sirywell.lyricalcommitment.services.MyProjectService"/>
+        <vcs.commitMessageProvider implementation="de.sirywell.lyricalcommitment.LyricsMessageProvider"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.sirywell.lyricalcommitment.listeners.MyProjectManagerListener"
+        <listener class="de.sirywell.lyricalcommitment.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
