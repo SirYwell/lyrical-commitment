@@ -54,6 +54,5 @@ class TextylLyricsProvider : LyricsProvider {
 
     data class Line(val seconds: Int, val lyrics: String)
 
-    inline fun <reified T> Gson.fromJson(json: String) = fromJson<T>(json, object: TypeToken<T>() {}.type)
-
+    inline fun <reified T> Gson.fromJson(json: String) = fromJson<T>(json, object : TypeToken<T>() {}.type)
 }

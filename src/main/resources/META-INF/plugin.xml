@@ -10,10 +10,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <vcs.commitMessageProvider implementation="de.sirywell.lyricalcommitment.LyricsMessageProvider"/>
+        <applicationConfigurable instance="de.sirywell.lyricalcommitment.settings.LCAppSettings"
+                                 id="org.company.ApplicationSettingsConfigurable" displayName="Lyrical Commitment"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="de.sirywell.lyricalcommitment.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

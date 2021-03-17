@@ -34,6 +34,12 @@ dependencies {
     implementation("se.michaelthelin.spotify:spotify-web-api-java:6.5.2") {
         exclude("org.slf4j") // provided by IntelliJ (?)
     }
+    implementation("com.sparkjava:spark-core:2.9.3") {
+        exclude("org.slf4j")
+    }
+    implementation("com.sparkjava:spark-kotlin:1.0.0-alpha") {
+        exclude("org.slf4j")
+    }
 }
 
 // Configure gradle-intellij-plugin plugin.

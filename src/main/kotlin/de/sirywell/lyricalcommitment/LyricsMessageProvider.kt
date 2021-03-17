@@ -19,7 +19,7 @@ class LyricsMessageProvider : CommitMessageProvider {
         val s = gitRepositoryManager.repositories.firstOrNull()?.currentBranchName ?: return lastCommitMessage
         if (!filterBranch(s)) return lastCommitMessage
         val currentSongInfo = spotifyService.getCurrentSongInfo()
-        if (!currentSongInfo.is_playing) return lastCommitMessage
+        if (currentSongInfo?.is_playing != true) return lastCommitMessage
         return lyricsProvider.songLineAt(currentSongInfo.item.name, seconds = currentSongInfo.progress_ms / 1000)
             ?: lastCommitMessage
     }
