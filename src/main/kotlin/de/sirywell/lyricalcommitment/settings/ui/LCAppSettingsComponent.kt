@@ -4,6 +4,8 @@ import com.intellij.ide.BrowserUtil
 import com.intellij.util.ui.FormBuilder
 import de.sirywell.lyricalcommitment.MyBundle
 import de.sirywell.lyricalcommitment.services.SpotifyService
+import de.sirywell.lyricalcommitment.services.SpotifyService.Companion.maxCodeLength
+import de.sirywell.lyricalcommitment.services.SpotifyService.Companion.minCodeLength
 import spark.kotlin.ignite
 import java.awt.event.ActionEvent
 import java.nio.charset.StandardCharsets
@@ -92,7 +94,7 @@ fun generateCodePair(): CodePair {
     // valid += "0123456789_.-~"
     val elements = valid.length
     val random = SecureRandom.getInstanceStrong()
-    val length = random.nextInt(128 - 43) + 43
+    val length = random.nextInt(maxCodeLength - minCodeLength) + minCodeLength
     val chars = mutableListOf<Char>()
     for (i in 0..length) {
         chars.add(valid[random.nextInt(elements)])

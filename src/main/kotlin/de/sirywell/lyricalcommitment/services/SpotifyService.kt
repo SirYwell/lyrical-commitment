@@ -15,10 +15,13 @@ class SpotifyService {
             return SpotifyServiceState()
         }
 
+        const val maxCodeLength = 128
+
+        const val minCodeLength = 43
+
         const val port = 51258
 
         val spotifyApi: SpotifyApi = SpotifyApi.builder()
-            // TODO
             .setRedirectUri(URI.create("http://localhost:$port/login"))
             .setClientId(clientId)
             .build()
@@ -37,6 +40,8 @@ class SpotifyService {
     fun getCurrentSongInfo(): CurrentlyPlaying? {
         return spotifyApi.usersCurrentlyPlayingTrack.build().execute()
     }
+
+    fun ready() = !spotifyApi.accessToken.isNullOrBlank()
 
     class SpotifyServiceState(
         var accessToken: String? = null,

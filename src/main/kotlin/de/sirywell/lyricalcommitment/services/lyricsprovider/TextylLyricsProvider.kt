@@ -2,7 +2,9 @@ package de.sirywell.lyricalcommitment.services.lyricsprovider
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
+import java.io.IOException
 import java.net.URLEncoder
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -28,15 +30,17 @@ class TextylLyricsProvider : LyricsProvider {
             .GET()
             .timeout(Duration.ofSeconds(2))
             .build()
-        try {
+        return try {
             httpClient.send(request, HttpResponse.BodyHandlers.ofString()).run {
                 val list: List<Line> = gson.fromJson<List<Line>>(body())
                 val lyrics = Lyrics(song, list)
                 last = lyrics
-                return lyrics.findBySeconds(seconds)
+                lyrics.findBySeconds(seconds)
             }
-        } catch (ex: Exception) {
-            return null
+        } catch (ex: IOException) {
+            null
+        } catch (ex: JsonSyntaxException) {
+            null
         }
     }
 
