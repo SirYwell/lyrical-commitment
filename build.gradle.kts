@@ -30,7 +30,7 @@ repositories {
     maven { url = uri("https://jitpack.io") }
 }
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.15.0")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
     implementation("se.michaelthelin.spotify:spotify-web-api-java:6.5.2") {
         exclude("org.slf4j") // provided by IntelliJ (?)
     }
