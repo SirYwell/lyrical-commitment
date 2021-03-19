@@ -37,9 +37,9 @@ class TextylLyricsProvider : LyricsProvider {
                 last = lyrics
                 lyrics.findBySeconds(seconds)
             }
-        } catch (ex: IOException) {
+        } catch (ignore: IOException) {
             null
-        } catch (ex: JsonSyntaxException) {
+        } catch (ignore: JsonSyntaxException) {
             null
         }
     }

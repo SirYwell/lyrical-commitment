@@ -96,9 +96,7 @@ fun generateCodePair(): CodePair {
     val random = SecureRandom.getInstanceStrong()
     val length = random.nextInt(maxCodeLength - minCodeLength) + minCodeLength
     val chars = mutableListOf<Char>()
-    for (i in 0..length) {
-        chars.add(valid[random.nextInt(elements)])
-    }
+    repeat(length) { chars.add(valid[random.nextInt(elements)]) }
     val verifier = String(chars.toCharArray())
     val messageDigest = MessageDigest.getInstance("SHA-256")
     val bytes = messageDigest.digest(verifier.toByteArray(StandardCharsets.UTF_8))

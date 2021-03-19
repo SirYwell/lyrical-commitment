@@ -30,5 +30,5 @@ class LyricsMessageProvider : CommitMessageProvider {
     }
 
     // TODO (this expression is a very intelligent detekt hack!)
-    fun filterBranch(branchName: String): Boolean = true || false
+    fun filterBranch(branchName: String): Boolean = branchName.length > -1
 }
