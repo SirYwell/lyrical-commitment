@@ -31,7 +31,7 @@ repositories {
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
-    implementation("se.michaelthelin.spotify:spotify-web-api-java:6.5.2") {
+    implementation("se.michaelthelin.spotify:spotify-web-api-java:6.5.3") {
         exclude("org.slf4j") // provided by IntelliJ (?)
     }
     implementation("com.sparkjava:spark-core:2.9.3") {
